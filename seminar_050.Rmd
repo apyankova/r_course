@@ -204,11 +204,17 @@ D_i = \frac{\sum_{j=1}^n(\hat y_j - \hat y_j^{(-i)})^2}{k\hat\sigma^2},
 Затем визуилизируем получившиеся доверительные интервалы командой `sjp.lm()` из пакета `sjPlot`.
 
 ```{r}
-coefci(model_ur)
-plot_model(model_ur, ci.lvl = 0.9)
+coefci(model_ur, level = 0.8)
+library(sjPlot)
+plot_model(model_ur, type = "std", ci.lvl = 0.9)
 ```
 
 - Загляните в справку :) Какая опция функции `coefci` отвечает за уровень доверия?
+
+```{r}
+vif(model_ur)
+```
+
 
 * Упражнение 4.
 
